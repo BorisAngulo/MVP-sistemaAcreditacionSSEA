@@ -81,10 +81,10 @@ function App() {
         <Route 
           path="/unauthorized" 
           element={
-            <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-              <div className="text-center">
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">Acceso No Autorizado</h1>
-                <p className="text-gray-600">No tienes permisos para acceder a esta página.</p>
+            <div className="min-h-screen bg-white flex items-center justify-center">
+              <div className="text-center bg-red-50 p-8 rounded-lg border-2 border-red-600 shadow-lg">
+                <h1 className="text-2xl font-bold text-red-600 mb-4">Acceso No Autorizado</h1>
+                <p className="text-gray-700 font-medium">No tienes permisos para acceder a esta página.</p>
               </div>
             </div>
           } 

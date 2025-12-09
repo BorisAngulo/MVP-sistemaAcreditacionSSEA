@@ -20,23 +20,23 @@ const PhaseCreationForm = ({ onClose, onSubmit }) => {
   };
 
   return (
-    <div className="fixed z-10 inset-0 overflow-y-auto">
-      <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        {/* Background overlay */}
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onClick={onClose}></div>
+    <div className="fixed inset-0 z-50 overflow-y-auto">
+      {/* Background overlay */}
+      <div className="fixed inset-0 bg-gray-900/50" onClick={onClose}></div>
 
-        {/* Modal panel */}
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      {/* Modal panel */}
+      <div className="flex items-center justify-center min-h-screen px-3 py-4 sm:px-4">
+        <div className="relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-2xl transform transition-all w-full max-w-lg border-2 border-blue-900 z-10">
           <form onSubmit={handleSubmit}>
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="sm:flex sm:items-start">
-                <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
+                <div className="mt-2 text-center sm:mt-0 sm:text-left w-full">
+                  <h3 className="text-lg sm:text-xl leading-6 font-bold text-blue-900 mb-3 sm:mb-4">
                     Crear Nueva Fase
                   </h3>
-                  <div className="mt-2 space-y-4">
+                  <div className="mt-2 space-y-3 sm:space-y-4">
                     <div>
-                      <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="title" className="block text-xs sm:text-sm font-bold text-gray-900">
                         Título
                       </label>
                       <input
@@ -45,12 +45,12 @@ const PhaseCreationForm = ({ onClose, onSubmit }) => {
                         required
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-blue-900 text-xs sm:text-sm"
                         placeholder="Ej: Fase 1 - Documentación Inicial"
                       />
                     </div>
                     <div>
-                      <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="description" className="block text-xs sm:text-sm font-bold text-gray-900">
                         Descripción
                       </label>
                       <textarea
@@ -59,7 +59,7 @@ const PhaseCreationForm = ({ onClose, onSubmit }) => {
                         rows="4"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-blue-900 text-xs sm:text-sm"
                         placeholder="Describe los requisitos y objetivos de esta fase..."
                       />
                     </div>
@@ -67,18 +67,18 @@ const PhaseCreationForm = ({ onClose, onSubmit }) => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <div className="bg-gray-50 px-4 py-3 sm:px-6 flex flex-col-reverse gap-2 sm:flex-row-reverse sm:gap-0">
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-indigo-400"
+                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-900 text-sm sm:text-base font-bold text-white hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800 sm:ml-3 sm:w-auto disabled:bg-blue-400 transition-colors"
               >
                 {loading ? 'Creando...' : 'Crear Fase'}
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                className="w-full inline-flex justify-center rounded-md border-2 border-gray-300 shadow-sm px-4 py-2 bg-white text-sm sm:text-base font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto transition-colors"
               >
                 Cancelar
               </button>

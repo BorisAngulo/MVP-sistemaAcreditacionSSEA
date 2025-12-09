@@ -33,17 +33,23 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-white flex items-center justify-center py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6 sm:space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            SSEA - Sistema de Seguimiento
+          <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold text-blue-900">
+            SSEA - Sistema de Evaluación y Acreditación
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-xs sm:text-sm text-gray-600">
             Proceso de Acreditación
           </p>
+          <p className="mt-2 text-center text-xs sm:text-sm text-gray-600">
+            <b>Admin:</b> admin@gmail.com <b>pass:</b> 123456
+          </p>
+          <p className="mt-2 text-center text-xs sm:text-sm text-gray-600">
+            <b>Coordinador:</b> coordinador@gmail.com <b>pass:</b> 123456
+          </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-6 sm:mt-8 space-y-6 bg-gray-50 p-4 sm:p-8 rounded-lg shadow-lg" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email" className="sr-only">
@@ -57,7 +63,7 @@ const Login = ({ setUser }) => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2.5 sm:py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-900 focus:border-blue-900 focus:z-10 text-sm sm:text-sm"
                 placeholder="Correo electrónico"
               />
             </div>
@@ -73,15 +79,15 @@ const Login = ({ setUser }) => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2.5 sm:py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-900 focus:border-blue-900 focus:z-10 text-sm sm:text-sm"
                 placeholder="Contraseña"
               />
             </div>
           </div>
 
           {error && (
-            <div className="rounded-md bg-red-50 p-4">
-              <div className="text-sm text-red-800">{error}</div>
+            <div className="rounded-md bg-red-50 p-4 border border-red-600">
+              <div className="text-sm text-red-600 font-medium">{error}</div>
             </div>
           )}
 
@@ -89,7 +95,7 @@ const Login = ({ setUser }) => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
+              className="group relative w-full flex justify-center py-3 sm:py-3 px-4 border border-transparent text-sm sm:text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800 disabled:bg-blue-800 transition-colors"
             >
               {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
             </button>
