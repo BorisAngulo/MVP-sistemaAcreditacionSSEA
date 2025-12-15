@@ -36,6 +36,13 @@ const Login = ({ setUser }) => {
     <div className="min-h-screen bg-white flex items-center justify-center py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-6 sm:space-y-8">
         <div>
+          <button
+            onClick={() => navigate('/')}
+            className="text-blue-900 hover:text-blue-700 flex items-center gap-2 mb-4 transition-colors"
+          >
+            <span>←</span>
+            <span className="text-sm font-medium">Volver al inicio</span>
+          </button>
           <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold text-blue-900">
             SSEA - Sistema de Evaluación y Acreditación
           </h2>
