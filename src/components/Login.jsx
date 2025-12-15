@@ -18,11 +18,11 @@ const Login = ({ setUser }) => {
       const userData = await login(email, password);
       setUser(userData);
       
-      // Redirigir según el rol
+      // Redirigir según el rol a las páginas de información
       if (userData.role === 'admin') {
-        navigate('/admin');
+        navigate('/admin-info');
       } else if (userData.role === 'coordinator') {
-        navigate('/coordinator');
+        navigate('/coordinator-info');
       }
     } catch (err) {
       setError('Error al iniciar sesión. Verifica tus credenciales.');

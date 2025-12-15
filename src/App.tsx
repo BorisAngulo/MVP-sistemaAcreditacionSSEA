@@ -6,11 +6,17 @@ import { onAuthStateChanged } from 'firebase/auth';
 // @ts-ignore
 import { getUserData } from './services/firebase';
 // @ts-ignore
+import Home from './components/Home';
+// @ts-ignore
 import Login from './components/Login';
 // @ts-ignore
 import ProtectedRoute from './components/ProtectedRoute';
 // @ts-ignore
+import AdminInfo from './components/AdminInfo';
+// @ts-ignore
 import AdminDashboard from './components/AdminDashboard';
+// @ts-ignore
+import CoordinatorInfo from './components/CoordinatorInfo';
 // @ts-ignore
 import CoordinatorDashboard from './components/CoordinatorDashboard';
 
@@ -55,11 +61,30 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Página principal pública */}
         <Route 
-          path="/login" 
-          element={user ? <Navigate to={user.role === 'admin' ? '/admin' : '/coordinator'} replace /> : <Login setUser={setUser} />} 
+          path="/" 
+          element={<Home />} 
+        />
+
+        {/* Páginas de información */}
+        <Route 
+          path="/admin-info" 
+          element={<AdminInfo user={user} />} 
         />
         
+        <Route 
+          path="/coordinator-info" 
+          element={<CoordinatorInfo user={user} />} 
+        />
+
+        {/* Login */}
+        <Route 
+          path="/login" 
+          element={user ? <Navigate to={user.role === 'admin' ? '/admin-info' : '/coordinator-info'} replace /> : <Login setUser={setUser} />} 
+        />
+        
+        {/* Dashboards protegidos */}
         <Route 
           path="/admin" 
           element={
@@ -78,6 +103,7 @@ function App() {
           } 
         />
 
+        {/* Error de autorización */}
         <Route 
           path="/unauthorized" 
           element={
@@ -90,11 +116,7 @@ function App() {
           } 
         />
         
-        <Route 
-          path="/" 
-          element={<Navigate to={user ? (user.role === 'admin' ? '/admin' : '/coordinator') : '/login'} replace />} 
-        />
-        
+        {/* Ruta por defecto */}
         <Route 
           path="*" 
           element={<Navigate to="/" replace />} 
